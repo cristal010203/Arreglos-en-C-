@@ -91,7 +91,26 @@ void modificarContacto() {
 
     cout << "Contacto no encontrado.\n";
 }
+// Eliminar un contacto
+void eliminarContacto() {
+    string buscar;
+    cout << "Nombre o telefono del contacto a eliminar: ";
+    getline(cin, buscar);
 
+    for (int i = 0; i < totalContactos; i++) {
+        if (nombres[i].find(buscar) != string::npos || telefonos[i].find(buscar) != string::npos) {
+            for (int j = i; j < totalContactos - 1; j++) {
+                nombres[j] = nombres[j + 1];
+                telefonos[j] = telefonos[j + 1];
+            }
+            totalContactos--;
+            cout << "Contacto eliminado.\n";
+            return;
+        }
+    }
+
+    cout << "Contacto no encontrado.\n";
+}
 
 
 // Menú principal
@@ -107,6 +126,7 @@ int main() {
         cout << "2. Mostrar contactos\n";
         cout << "3. Buscar contacto\n";
         cout << "4. Modificar contacto\n";
+        cout << "5. Eliminar contacto\n";
 
         cin >> opcion;
         getline(cin, dummy); // Limpiar el buffer
@@ -116,6 +136,7 @@ int main() {
             case 2: mostrarContactos(); break;
             case 3: buscarContacto(); break;
             case 4: modificarContacto(); break;
+            case 5: eliminarContacto(); break;
 
             default: cout << "Opcion no valida.\n"; break;
         }
