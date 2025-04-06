@@ -111,6 +111,21 @@ void eliminarContacto() {
 
     cout << "Contacto no encontrado.\n";
 }
+// Guardar los contactos en un archivo
+void guardarContactos() {
+    ofstream archivo("contactos.txt");
+
+    if (archivo.is_open()) {
+        for (int i = 0; i < totalContactos; i++) {
+            archivo << nombres[i] << endl;
+            archivo << telefonos[i] << endl;
+        }
+        archivo.close();
+        cout << "Contactos guardados en el archivo.\n";
+    } else {
+        cout << "No se pudo abrir el archivo para guardar los contactos.\n";
+    }
+}
 
 
 // Menú principal
@@ -127,6 +142,9 @@ int main() {
         cout << "3. Buscar contacto\n";
         cout << "4. Modificar contacto\n";
         cout << "5. Eliminar contacto\n";
+        cout << "6. Guardar y salir\n";
+        cout << "Elige una opcion: ";
+
 
         cin >> opcion;
         getline(cin, dummy); // Limpiar el buffer
@@ -137,6 +155,11 @@ int main() {
             case 3: buscarContacto(); break;
             case 4: modificarContacto(); break;
             case 5: eliminarContacto(); break;
+            case 6: guardarContactos();
+            cout << "Saliendo...\n";
+            break;
+
+
 
             default: cout << "Opcion no valida.\n"; break;
         }
