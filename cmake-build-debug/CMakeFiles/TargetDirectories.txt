@@ -1,0 +1,3 @@
+C:/Users/Dell_User/CLionProjects/c++/Arraysc/cmake-build-debug/CMakeFiles/Arraysc.dir
+C:/Users/Dell_User/CLionProjects/c++/Arraysc/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dell_User/CLionProjects/c++/Arraysc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
