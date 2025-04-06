@@ -26,6 +26,22 @@ void cargarContactos() {
         cout << "No se pudo abrir el archivo para cargar los contactos.\n";
     }
 }
+// Agregar un nuevo contacto
+void agregarContacto() {
+    if (totalContactos >= MAX_CONTACTOS) {
+        cout << "Agenda llena.\n";
+        return;
+    }
+
+    cout << "Nombre: ";
+    getline(cin, nombres[totalContactos]);
+    cout << "Telefono: ";
+    getline(cin, telefonos[totalContactos]);
+
+    totalContactos++;
+    cout << "Contacto agregado.\n";
+}
+
 
 // Menú principal
 int main() {
@@ -34,4 +50,22 @@ int main() {
 
     // Cargar los contactos al iniciar el programa
     cargarContactos();
+    do {
+        cout << "\n=== Agenda de Contactos ===\n";
+        cout << "1. Agregar contacto\n";
+
+        cin >> opcion;
+        getline(cin, dummy); // Limpiar el buffer
+
+        switch (opcion) {
+            case 1: agregarContacto(); break;
+           
+            default: cout << "Opcion no valida.\n"; break;
+        }
+
+    } while (opcion != 6);
+
+    return 0;
+
+
 }
